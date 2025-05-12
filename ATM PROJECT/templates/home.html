@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM Portal</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* Vibrant blue gradient */
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-size: cover;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            font-size: 48px; 
+            font-weight: bold;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+            margin-bottom: 60px; 
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .menu a {
+            width: 350px;
+            padding: 25px 0;
+            background-color: #333333; 
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu a:hover {
+            background-color: #444444; 
+            transform: scale(1.05);
+        }
+
+        .menu a:active {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your ATM Portal</h1>
+    <div class="menu">
+        <a href="/withdraw1">Withdraw</a>
+        <a href="/deposit">Deposit</a>
+        <a href="/mini-statement">Mini Statement</a>
+        <a href="/pin_generation1">PIN Generation</a>
+    </div>
+</body>
+</html>

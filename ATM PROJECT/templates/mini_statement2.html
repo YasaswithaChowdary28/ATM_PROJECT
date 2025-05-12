@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statement</title>
+    <style>
+        body {
+            background-color: #87CEEB;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            color: #444444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 50%;
+            max-width: 800px;
+        }
+        h2 {
+            color: #333333;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        p {
+            color: #555555;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background-color: #dddddd;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 5px;
+            color: #333333;
+            font-size: 18px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #666666;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        a:hover {
+            background-color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Mini Statement for {{ name }}</h2>
+        <p>Account Number: {{ accno }}</p>
+        <p>Current Balance: ₹{{ balance }}</p>
+        <p>Email: {{ email }}</p>
+        <ul>
+            {% for item in history %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        <a href="/">Home</a>
+    </div>
+</body>
+</html>

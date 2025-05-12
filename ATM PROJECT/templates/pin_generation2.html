@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set New PIN</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        h2 {
+            color: #444444;
+            font-size: 36px;
+            margin-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            margin-bottom: 10px;
+            color: #444444;
+            font-size: 20px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            margin-top: 0px;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #888888;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #666666;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        input[type="submit"]:hover {
+            background-color: #555555;
+        }
+        .home-button {
+            background-color: #888888;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            margin-top: 20px;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .home-button:hover {
+            background-color: #666666;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var data = "{{msg}}";
+        if (data == "wrongpin") {
+            alert("PIN does not match");
+        } else if (data == "ok") {
+            alert("PIN generated successfully");
+        }
+    </script>
+
+    <h2>Pin Generation</h2>
+    <h3>Account Number: <span style="color:#222222;">{{ accno }}</span></h3>
+
+    <div class="form-container">
+        <form action="/pin_generation3" method="POST">
+            <input type="hidden" name="accno" value="{{ accno }}">
+            <input type="password" name="pin" placeholder="Enter New PIN" required><br>
+            <input type="password" name="cpin" placeholder="Confirm New PIN" required><br>
+            <input type="submit" value="Generate PIN">
+        </form>
+        <a href="/" class="home-button">Home</a>
+    </div>
+</body>
+</html>

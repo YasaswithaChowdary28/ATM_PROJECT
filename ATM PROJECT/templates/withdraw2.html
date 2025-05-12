@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Withdraw Amount</title>
+    <style>
+        body {
+            background-color: #87CEEB;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        input {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 280px;
+        }
+        /* Remove number spinner */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            appearance: textfield;        
+            -moz-appearance: textfield;  
+        }
+        .btn {
+            background-color: #666666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #444444;
+        }
+        .home-btn {
+            background-color: #888888; 
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            margin-top: 20px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        .home-btn:hover {
+            background-color: #666666; 
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var msg = "{{ msg }}";
+        if (msg === "nobalance") {
+            alert("Insufficient funds!");
+        } else if (msg === "balance") {
+            alert("Transaction successful!");
+        }
+    </script>
+
+    <div class="container">
+        <h2>Withdraw for {{ user_name }}</h2>
+        <form method="post" action="/withdraw3">
+            <input type="hidden" name="accnno" value="{{ accno }}">
+            <input type="number" name="amount" placeholder="Enter amount" required><br>
+            <input type="submit" class="btn" value="Withdraw">
+        </form>
+        <a href="/" class="home-btn">Home</a>
+    </div>
+</body>
+</html>

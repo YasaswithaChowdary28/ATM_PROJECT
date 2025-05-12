@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Withdraw Login</title>
+    <style>
+        body {
+            background-color: #87CEEB;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            display: inline-block;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            display: block;
+            font-size: 18px;
+            padding: 12px;
+            margin: 10px 0;
+            width: 280px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .btn {
+            font-size: 18px;
+            background-color: #777777;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #555555;
+        }
+
+        .home-btn {
+            font-size: 18px;
+            background-color: #999999;
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .home-btn:hover {
+            background-color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var msg = "{{ msg }}";
+        if (msg === "noaccount") {
+            alert("Account not found!");
+        } else if (msg === "wrongpin") {
+            alert("Incorrect PIN!");
+        }
+        else if (data == "nopin"){
+            alert("Pin Not Yet Generated !");
+        }
+    </script>
+
+    <div class="container">
+        <h1>Enter Account Details</h1>
+        <div class="form-box">
+            <form method="post" action="/withdraw2">
+                <input type="text" name="account_number" placeholder="Account Number" required>
+                <input type="password" name="pin" placeholder="PIN Number" required>
+                <input type="submit" class="btn" value="Proceed">
+            </form>
+            <a href="/" class="home-btn">Home</a>
+        </div>
+    </div>
+</body>
+</html>

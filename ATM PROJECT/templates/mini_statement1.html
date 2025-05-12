@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Mini Statement</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #87CEEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        h2 {
+            color: #444444;
+            font-size: 36px;
+            margin-bottom: 30px;
+            margin-top: 40px;
+        }
+        .form-box {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #888888;
+            border-radius: 5px;
+        }
+        input[type="submit"], .home-btn {
+            background-color: #666666;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        input[type="submit"]:hover, .home-btn:hover {
+            background-color: #555555;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var data = "{{ msg }}";
+        if (data == "noaccount") {
+            alert("Account Does Not Exist!");
+        } else if (data == "wrongpin") {
+            alert("Invalid Pin!");
+        }else if (data == "nopin"){
+            alert("Pin Not Yet Generated !");
+        }
+    </script>
+
+    <h2>Mini Statement</h2>
+
+    <div class="form-box">
+        {% if msg %}
+            <p style="color: goldenrod;">{{ msg }}</p>
+        {% endif %}
+        <form method="post" action="/mini-statement2">
+            <input type="text" name="account_number" placeholder="Account Number" required><br>
+            <input type="password" name="pin" placeholder="PIN" required><br>
+            <input type="submit" value="View Statement">
+        </form>
+        <a href="/" class="home-link">
+            <button class="home-btn">Home</button>
+        </a>
+    </div>
+</body>
+</html>
